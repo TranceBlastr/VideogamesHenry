@@ -24,8 +24,9 @@ server.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
-
-server.use("/", routes);
+//! Utilizo la ruta general "api"
+//! En el "index" de la carpeta "routes" creo las rutas a los handlers
+server.use("/api", routes);
 
 // Error catching endware.
 server.use((err, req, res, next) => {
