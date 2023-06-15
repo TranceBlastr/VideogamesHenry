@@ -26,7 +26,7 @@ server.use((req, res, next) => {
 });
 //! Utilizo la ruta general "api"
 //! En el "index" de la carpeta "routes" creo las rutas a los handlers
-server.use("/api", routes);
+server.use("/", routes);
 
 // Error catching endware.
 server.use((err, req, res, next) => {

@@ -1,18 +1,21 @@
 const { Router } = require("express");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const gameHandler = require("../handlers/gameHandler");
-const gamePostHandler = require("../handlers/gamepostHandler");
-const genreHandler = require("../handlers/genreHandler");
-
+const {
+  getAllGamesHandler,
+  getGameByNameHandler,
+} = require("../handlers/gameHandler");
 const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-router.get("/videogames", gameHandler);
+router.get("/games", getAllGamesHandler);
 
-router.post("/videogames", gamePostHandler);
+// router.post("/games", gamePostHandler);
 
-router.get("/genres", genreHandler);
+// router.get("/genres", genreHandler);
 
 module.exports = router;
+
+//! Teniendo las sub-rutas, utilizo los handlers para gestionar la informacion
+//! que debo pedir a la
