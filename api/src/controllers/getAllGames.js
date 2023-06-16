@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Videogame } = require("../db");
 const { API_KEY, API_URL } = process.env;
-const { cleanArray } = require("../controllers/cleanArray");
+const { cleanArray } = require("../helpers/cleanArray");
 
 //Levanto los juegos de las primeras 5 paginas de la API
 const cienJuegos = async () => {
