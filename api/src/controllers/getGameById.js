@@ -11,11 +11,11 @@ Si no encuentra nada, por ende es un numero puro y me dirijo a la API*/
 const getGameById = async (id) => {
   try {
     if (isUUID(id)) {
-      const gamesFromDB = await Videogame.findAll({ where: { id: idNumber } });
+      const gamesFromDB = await Videogame.findAll({ where: { id: id } });
       return gamesFromDB;
     }
 
-    const { data } = await axios.get(`${API_URL}/${idNumber}?key=${API_KEY}`);
+    const { data } = await axios.get(`${API_URL}/${id}?key=${API_KEY}`);
     const gameByIdApi = await cleanObject(data);
 
     return gameByIdApi;

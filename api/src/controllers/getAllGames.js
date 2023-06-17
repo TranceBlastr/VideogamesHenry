@@ -17,7 +17,7 @@ const cienJuegos = async () => {
   return apiInfo;
 };
 
-const getAllGamesController = async () => {
+const getAllGames = async () => {
   try {
     // Obtengo juegos de la base de datos
     const gamesFromDB = await Videogame.findAll();
@@ -34,4 +34,4 @@ const getAllGamesController = async () => {
   }
 };
 
-module.exports = { getAllGamesController };
+module.exports = { getAllGames };
