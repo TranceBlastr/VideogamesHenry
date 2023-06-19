@@ -5,7 +5,6 @@ const { cleanArray } = require("../helpers/cleanArray");
 
 //Levanto los juegos de las primeras 5 paginas de la API
 const cienJuegos = async () => {
-  //defino el array
   let apiInfo = [];
   for (let i = 1; i <= 5; i++) {
     //itero para pedir a cada una de las 5 paginas que necesito
