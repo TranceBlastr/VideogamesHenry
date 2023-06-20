@@ -22,9 +22,18 @@ module.exports = (sequelize) => {
         defaultValue: "Game description.",
       },
       platform: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.ENUM(
+          "PC",
+          "PlayStation 4",
+          "PlayStation 5",
+          "Xbox 360",
+          "Xbox One",
+          "Nintendo Switch",
+          "Xbox Series S/X",
+          "Otro"
+        ),
         allowNull: false,
-        defaultValue: "No platform especified.",
+        defaultValue: "Seleccione la plataforma.",
       },
       image: {
         type: DataTypes.STRING,

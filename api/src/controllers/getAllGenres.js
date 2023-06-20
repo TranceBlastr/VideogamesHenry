@@ -7,9 +7,9 @@ const getAllGenres = async () => {
   // Obtener los géneros desde la base de datos
   const genresFromDB = await Genres.findAll();
   console.log("genresfromdb" + genresFromDB);
-  // if (genresFromDB.length > 1) {
-  //   return genresFromDB;
-  // }
+  if (genresFromDB.length > 0) {
+    return genresFromDB;
+  }
   // Si la base de datos está vacía, obtener los géneros desde la API
   const { data } = await axios.get(`${API_GENRE_URL}?key=${API_KEY}`);
   const genresFromAPI = await cleanGenre(data.results);

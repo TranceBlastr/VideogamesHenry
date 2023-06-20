@@ -9,6 +9,7 @@ const CardsContainer = () => {
     <div className={style.cardContainer}>
       {games.map((game) => (
         <Card
+          id={game.id}
           name={game.name}
           image={game.image}
           rating={game.rating}
