@@ -35,6 +35,16 @@ export const getGenres = () => {
   return async function (dispatch) {
     const response = await axios.get("http://localhost:3001/genres");
     const genres = response.data;
+    console.log("console genres" + genres);
     dispatch({ type: GET_GENRES, payload: genres });
+  };
+};
+
+export const postGame = (form) => {
+  return async function () {
+    axios
+      .post("http://localhost:3001/games", form)
+      .then((res) => alert(res.data))
+      .catch((err) => alert(err));
   };
 };

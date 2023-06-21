@@ -15,27 +15,17 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
-        defaultValue: "Game description.",
       },
       platform: {
-        type: DataTypes.ENUM(
-          "PC",
-          "PlayStation 4",
-          "PlayStation 5",
-          "Xbox 360",
-          "Xbox One",
-          "Nintendo Switch",
-          "Xbox Series S/X",
-          "Otro"
-        ),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
-        defaultValue: "Seleccione la plataforma.",
       },
-      image: {
+      background_image: {
         type: DataTypes.STRING,
         defaultValue: "No image available",
       },
@@ -53,7 +43,6 @@ module.exports = (sequelize) => {
       },
       createdInDb: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
         defaultValue: true,
       },
     },

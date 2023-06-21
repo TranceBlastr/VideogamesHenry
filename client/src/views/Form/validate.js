@@ -12,14 +12,14 @@ const validate = (formData) => {
   }
 
   // Validación del campo "background_image"
-  if (!formData.background_image) {
-    errors.background_image = "La URL de la imagen es obligatoria.";
-  } else {
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    if (!urlRegex.test(formData.background_image)) {
-      errors.background_image = "Ingrese una URL válida.";
-    }
-  }
+  // if (!formData.background_image) {
+  //   errors.background_image = "La URL de la imagen es obligatoria.";
+  // } else {
+  //   const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+  //   if (!urlRegex.test(formData.background_image)) {
+  //     errors.background_image = "Ingrese una URL válida.";
+  //   }
+  // }
 
   // Validación del campo "Descripcion"
   if (!formData.description) {

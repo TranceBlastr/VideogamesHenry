@@ -6,18 +6,22 @@ const { cleanGenre } = require("../helpers/cleanGenre");
 const getAllGenres = async () => {
   // Obtener los géneros desde la base de datos
   const genresFromDB = await Genres.findAll();
-  console.log("genresfromdb" + genresFromDB);
+
   if (genresFromDB.length > 0) {
     return genresFromDB;
   }
-  // Si la base de datos está vacía, obtener los géneros desde la API
-  const { data } = await axios.get(`${API_GENRE_URL}?key=${API_KEY}`);
-  const genresFromAPI = await cleanGenre(data.results);
-  console.log("genresfromapi:" + genresFromAPI);
-
+  const response = await axios.get(`${API_GENRE_URL}?key=${API_KEY}`);
+  const genresFromAPI = await cleanGenre(response.data.results);
+  // const genresFromAPI = data.results.map((genre) => genre.name);
+  // console.log(response.data.results);
   await Genres.bulkCreate(genresFromAPI);
-
+  console.log(genresFromAPI);
   return [...genresFromDB, ...genresFromAPI];
+  // return genresFromAPI;
+  // return axios
+  //   .get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
+  //   .then((data) => data.data.results.map((genre) => genre.name))
+  //   .catch((error) => new Error(error));
 };
 
 module.exports = { getAllGenres };
